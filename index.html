@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAGOH SEO — AI-Powered Content for Small Business</title>
+  <meta name="description" content="Done-for-you SEO content powered by AI. We write, publish, and rank your business — month after month.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #fdf8f0;
+      --parchmt:  #f5ede0;
+      --warm:     #ede3d5;
+      --border:   #e0d4c4;
+      --border2:  #d4c4b0;
+      --muted:    #b5a090;
+      --dim:      #8a7868;
+      --sub:      #6b5e50;
+      --ink:      #3d2f24;
+      --deep:     #2a1f16;
+
+      --rose:     #e8524a;
+      --rose-lt:  #fce8e7;
+      --teal:     #2a9d8f;
+      --teal-lt:  #e0f5f3;
+      --teal-md:  #a0dcd6;
+      --gold:     #e9a028;
+      --gold-lt:  #fdf0d5;
+      --gold-md:  #f7d08a;
+      --purple:   #9b6ba8;
+      --purple-lt: #f0e8f7;
+      --green:    #2a9d5c;
+      --green-lt: #e0f5eb;
+
+      --sans:  'DM Sans', sans-serif;
+      --serif: 'Fraunces', serif;
+    }
+
+    html, body { height: 100%; overflow-x: hidden; background: var(--cream); }
+    body { color: var(--ink); font-family: var(--sans); line-height: 1.6; }
+
+    a { color: var(--teal); text-decoration: none; transition: all 0.2s; }
+    a:hover { color: #228b7e; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── NAVIGATION ── */
+    .navbar {
+      background: var(--deep); border-bottom: 3px solid var(--teal);
+      padding: 1rem 0; position: sticky; top: 0; z-index: 100;
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    }
+    .nav-brand {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
+      color: #fff; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-brand em { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: rgba(255,255,255,0.7); font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { margin-left: auto; }
+
+    .btn {
+      display: inline-block; font-family: var(--sans); font-weight: 600;
+      padding: 0.75rem 1.5rem; border-radius: 10px; border: none;
+      cursor: pointer; transition: all 0.2s; text-align: center;
+      font-size: 0.9rem; letter-spacing: 0.02em;
+    }
+    .btn-primary { background: var(--teal); color: #fff; }
+    .btn-primary:hover { background: #228b7e; box-shadow: 0 4px 12px rgba(42,157,143,0.3); color: #fff; }
+    .btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+    .btn-outline:hover { background: var(--teal-lt); }
+    .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
+    .btn-lg { padding: 1.2rem 2.5rem; font-size: 1rem; width: 100%; max-width: 400px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--deep) 0%, #1a1410 100%);
+      color: #fff; padding: 5rem 0; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; opacity: 0.1;
+      background-image: radial-gradient(circle at 20% 50%, var(--teal) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, var(--gold) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-wrapper {
+      position: relative; z-index: 1; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .hero-badge {
+      display: inline-block; background: rgba(42,157,143,0.2);
+      border: 1px solid var(--teal-md); color: #fff;
+      padding: 0.6rem 1.2rem; border-radius: 20px; font-size: 0.85rem;
+      margin-bottom: 1.5rem; font-weight: 500;
+    }
+    .hero-title {
+      font-family: var(--serif); font-size: 3.2rem; font-weight: 700;
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--teal) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+
+    /* Hero stats panel */
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .stat-panel {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px; padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      animation: floatUpDown 5s ease-in-out infinite;
+    }
+    .stat-panel:nth-child(2) { animation-delay: 1.5s; }
+    .stat-panel:nth-child(3) { animation-delay: 3s; }
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .stat-num {
+      font-family: var(--serif); font-size: 2.4rem; font-weight: 700;
+      color: var(--gold); line-height: 1; white-space: nowrap;
+    }
+    .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+    /* ── SECTIONS ── */
+    .section-label {
+      display: inline-block; font-size: 0.8rem; color: var(--teal);
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--serif); font-size: 2.5rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.1rem; color: var(--dim); max-width: 600px; margin: 0 auto;
+    }
+    .offer-header { text-align: center; margin-bottom: 3rem; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { padding: 4rem 0; }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .step-card {
+      background: #fff; border-left: 4px solid var(--teal);
+      border-radius: 8px; padding: 1.5rem;
+      border: 1px solid var(--border); border-left: 4px solid var(--teal);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .step-num {
+      font-family: var(--serif); font-size: 2.2rem; font-weight: 700;
+      color: var(--teal); margin-bottom: 0.5rem;
+    }
+    .step-title { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.85rem; color: var(--dim); line-height: 1.5; }
+
+    /* ── PLANS ── */
+    .plans-section { padding: 4rem 0; background: var(--parchmt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .plan-card {
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 20px; padding: 2.5rem 2rem;
+      position: relative; transition: all 0.3s; text-align: left;
+    }
+    .plan-card:hover { border-color: var(--teal); box-shadow: 0 8px 28px rgba(42,157,143,0.12); }
+    .plan-card.featured { border-color: var(--teal); box-shadow: 0 8px 28px rgba(42,157,143,0.15); }
+    .plan-badge {
+      position: absolute; top: -1px; right: 24px;
+      background: var(--teal); color: #fff;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; padding: 0.4rem 1rem;
+      border-radius: 0 0 8px 8px;
+    }
+    .plan-name {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
+    }
+    .plan-price {
+      font-family: var(--serif); font-size: 3.2rem; font-weight: 700;
+      color: var(--ink); line-height: 1; margin-bottom: 0.25rem;
+    }
+    .plan-price sup { font-size: 1.4rem; vertical-align: super; font-weight: 300; }
+    .plan-cadence { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .plan-desc {
+      font-size: 0.9rem; color: var(--dim); line-height: 1.7;
+      margin-bottom: 1.5rem; padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-features { list-style: none; margin-bottom: 2rem; }
+    .plan-features li {
+      font-size: 0.9rem; color: var(--sub);
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .plan-features li:last-child { border: none; }
+    .plan-features li::before { content: "✓"; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+    .plan-btn {
+      display: block; text-align: center; width: 100%;
+      padding: 0.85rem; border-radius: 10px; font-size: 0.9rem;
+      font-weight: 600; cursor: pointer; transition: all 0.2s;
+      border: none; font-family: var(--sans);
+    }
+    .plan-btn.solid { background: var(--teal); color: #fff; }
+    .plan-btn.solid:hover { background: #228b7e; }
+    .plan-btn.outline { background: transparent; border: 1.5px solid var(--teal); color: var(--teal); }
+    .plan-btn.outline:hover { background: var(--teal-lt); }
+
+    /* ── DELIVERABLES ── */
+    .what-section { padding: 4rem 0; }
+    .what-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .what-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px; padding: 2rem; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .what-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .what-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .what-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .what-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.6; }
+
+    /* ── ADD-ON UPSELL ── */
+    .upsell-section {
+      background: var(--parchmt); padding: 3rem 0;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .upsell-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .upsell-card {
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 2rem; text-align: center; transition: all 0.3s;
+    }
+    .upsell-card:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(233,160,40,0.1); }
+    .upsell-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .upsell-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .upsell-price { font-family: var(--serif); font-size: 1.8rem; color: var(--gold); font-weight: 700; margin-bottom: 1rem; }
+    .upsell-desc { font-size: 0.9rem; color: var(--dim); margin-bottom: 1.5rem; line-height: 1.6; }
+    .upsell-btn {
+      width: 100%; padding: 0.8rem; background: var(--gold); color: var(--deep);
+      border: none; border-radius: 10px; font-weight: 600; cursor: pointer;
+      font-family: var(--sans); transition: all 0.2s;
+    }
+    .upsell-btn:hover { background: #d98a1f; }
+
+    /* ── CONTACT MODAL ── */
+    .checkout-wrap {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(45,32,22,0.72);
+      display: none; align-items: center; justify-content: center;
+      padding: 1rem; backdrop-filter: blur(6px);
+    }
+    .checkout-wrap.show { display: flex; }
+    .checkout-modal {
+      background: #fff; border: 1px solid var(--border);
+      width: 100%; max-width: 560px;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      animation: slideUp 0.3s ease; max-height: 90vh; overflow-y: auto;
+      position: relative;
+    }
+    @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .checkout-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none; font-size: 1.6rem; cursor: pointer;
+      color: rgba(255,255,255,0.7); line-height: 1; z-index: 1;
+    }
+    .checkout-close:hover { color: #fff; }
+    .checkout-header { background: var(--deep); padding: 2rem; text-align: center; }
+    .checkout-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .checkout-subtitle { font-size: 0.8rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; }
+    .checkout-body { padding: 2rem; }
+
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label {
+      display: block; font-size: 0.8rem; font-weight: 600; color: var(--dim);
+      letter-spacing: 0.05em; margin-bottom: 0.5rem; text-transform: uppercase;
+    }
+    .form-input {
+      width: 100%; padding: 0.75rem; border: 1.5px solid var(--border2);
+      font-family: var(--sans); font-size: 0.95rem; border-radius: 8px;
+      outline: none; transition: border-color 0.2s; background: #fff; color: var(--ink);
+    }
+    .form-input:focus { border-color: var(--teal); }
+    .form-input option { background: #fff; }
+    textarea.form-input { resize: vertical; min-height: 100px; }
+
+    .plan-summary {
+      background: var(--teal-lt); border: 1px solid var(--teal-md);
+      border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;
+      display: none;
+    }
+    .plan-summary.visible { display: block; }
+    .summary-line {
+      display: flex; justify-content: space-between;
+      font-size: 0.95rem; margin-bottom: 0.5rem;
+    }
+    .summary-line:last-child { margin: 0; }
+    .summary-line strong { color: var(--teal); font-family: var(--serif); font-size: 1.1rem; }
+
+    .checkout-btn {
+      width: 100%; padding: 1rem; background: var(--teal); color: #fff;
+      font-family: var(--sans); font-size: 0.95rem; font-weight: 600;
+      border: none; border-radius: 10px; cursor: pointer; transition: all 0.2s; margin-top: 1rem;
+    }
+    .checkout-btn:hover { background: #228b7e; }
+
+    /* ── SUCCESS STATE ── */
+    .form-success {
+      display: none; text-align: center; padding: 2.5rem 1rem;
+    }
+    .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.95rem; color: var(--dim); }
+
+    .success-notification {
+      position: fixed; top: 20px; right: 20px; z-index: 2000;
+      background: var(--teal); color: #fff; padding: 1rem 1.5rem;
+      border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: none; align-items: center; gap: 10px;
+      animation: slideInRight 0.3s ease;
+    }
+    @keyframes slideInRight { from { transform: translateX(400px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .success-notification.show { display: flex; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep); color: #fff; padding: 3rem 0 1rem;
+      margin-top: 5rem; border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem; margin-bottom: 2rem;
+    }
+    .footer-col h4 { font-size: 1rem; margin-bottom: 1rem; color: #fff; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.75rem; }
+    .footer-col a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem; color: rgba(255,255,255,0.6);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-wrapper { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a href="#" class="nav-brand">NAGOH<em>.</em>seo</a>
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#plans">Pricing</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="#addons">Add-Ons</a>
+    </div>
+    <a href="#" class="btn btn-primary btn-sm nav-cta" onclick="openModal()">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <div class="hero-badge">✦ AI-Powered · Done For You · No Contracts</div>
+        <h1 class="hero-title">
+          Rank higher.<br>
+          <span class="gradient-text">Show up first.</span>
+        </h1>
+        <p class="hero-sub">
+          We write, publish, and optimize SEO content for your business automatically — so customers find you before they find your competition. Month after month.
+        </p>
+        <div class="hero-actions">
+          <a href="#plans" class="btn btn-primary">See Pricing</a>
+          <a href="#how" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.4);">How It Works</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="stat-panel">
+          <div class="stat-num">4–12</div>
+          <div class="stat-label">Blog posts published<br>every month</div>
+        </div>
+        <div class="stat-panel">
+          <div class="stat-num">48hr</div>
+          <div class="stat-label">Content live after<br>you onboard</div>
+        </div>
+        <div class="stat-panel">
+          <div class="stat-num">Zero</div>
+          <div class="stat-label">Work required<br>on your end</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="offer-header">
+      <span class="section-label">The Process</span>
+      <h2 class="section-title">Done for you. Set and forget.</h2>
+      <p class="section-sub">You tell us about your business once. We handle everything from keyword research to publishing — every single month.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">You Onboard</div>
+        <div class="step-desc">Fill out a quick form about your business, services, and target city. Takes 10 minutes.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">We Research</div>
+        <div class="step-desc">We identify the exact keywords your local customers search when they need what you offer.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Content Ships</div>
+        <div class="step-desc">Blog posts, service pages, FAQs, and Google Business updates go live on your site monthly.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">You Rank</div>
+        <div class="step-desc">Google indexes your content. You start showing up. More searches, more leads, more calls.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-title">We Report</div>
+        <div class="step-desc">Monthly reports show your ranking progress, traffic trends, and what's driving results.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div class="step-title">We Repeat</div>
+        <div class="step-desc">Fresh content every month keeps your rankings climbing. SEO compounds over time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans-section" id="plans">
+  <div class="container">
+    <div class="offer-header">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">Simple plans. No surprises.</h2>
+      <p class="section-sub">Pick the cadence that fits your business. Cancel anytime — no long-term contracts required.</p>
+    </div>
+    <div class="plans-grid">
+
+      <!-- Starter -->
+      <div class="plan-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><sup>$</sup>199</div>
+        <div class="plan-cadence">per month</div>
+        <div class="plan-desc">Great for businesses just getting started with SEO or in lower-competition local markets.</div>
+        <ul class="plan-features">
+          <li>4 SEO blog posts / month</li>
+          <li>Keyword research included</li>
+          <li>2 Google Business posts / month</li>
+          <li>Content delivered via Google Drive</li>
+          <li>Monthly performance report</li>
+        </ul>
+        <button class="plan-btn outline" onclick="openModal('Starter — $199/mo')">Get Started</button>
+      </div>
+
+      <!-- Growth -->
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-price"><sup>$</sup>349</div>
+        <div class="plan-cadence">per month</div>
+        <div class="plan-desc">For businesses that want to dominate their local market and keep competitors off the front page.</div>
+        <ul class="plan-features">
+          <li>8 SEO blog posts / month</li>
+          <li>Deep keyword research</li>
+          <li>4 Google Business posts / month</li>
+          <li>1 service page rewrite / month</li>
+          <li>Direct CMS publishing (WordPress)</li>
+          <li>Monthly ranking report</li>
+          <li>Priority email support</li>
+        </ul>
+        <button class="plan-btn solid" onclick="openModal('Growth — $349/mo')">Get Started</button>
+      </div>
+
+      <!-- Authority -->
+      <div class="plan-card">
+        <div class="plan-name">Authority</div>
+        <div class="plan-price"><sup>$</sup>599</div>
+        <div class="plan-cadence">per month</div>
+        <div class="plan-desc">Full-service SEO content operation. For businesses that want to own their category online, period.</div>
+        <ul class="plan-features">
+          <li>12 SEO blog posts / month</li>
+          <li>Full keyword strategy</li>
+          <li>Weekly Google Business posts</li>
+          <li>2 service page rewrites / month</li>
+          <li>Direct CMS publishing</li>
+          <li>Competitor content gap analysis</li>
+          <li>Bi-weekly ranking calls</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <button class="plan-btn outline" onclick="openModal('Authority — $599/mo')">Get Started</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="what-section" id="deliverables">
+  <div class="container">
+    <div class="offer-header">
+      <span class="section-label">What You Get</span>
+      <h2 class="section-title">Real content. Real results.</h2>
+      <p class="section-sub">Every piece we create is written for your business, your city, and your customers — not generic filler.</p>
+    </div>
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="what-icon">✍️</div>
+        <div class="what-title">Blog Posts</div>
+        <div class="what-desc">Long-form, keyword-targeted articles that answer what your customers are already searching for. Written in your brand voice.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">📄</div>
+        <div class="what-title">Service Pages</div>
+        <div class="what-desc">SEO-optimized pages for each service you offer, built to rank in your city and convert visitors into calls.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">❓</div>
+        <div class="what-title">FAQ Content</div>
+        <div class="what-desc">Question-and-answer content that captures voice search queries and featured snippet rankings on Google.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">📍</div>
+        <div class="what-title">Google Business Updates</div>
+        <div class="what-desc">Regular posts to your Google Business Profile to signal activity and boost local map pack rankings.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">🔑</div>
+        <div class="what-title">Keyword Research</div>
+        <div class="what-desc">We identify the exact terms your local customers search — not guesses, not generic lists. Real search data.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">📊</div>
+        <div class="what-title">Monthly Reports</div>
+        <div class="what-desc">Clear, simple reports showing your ranking improvements, traffic growth, and what content is driving results.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="upsell-section" id="addons">
+  <div class="container">
+    <div class="offer-header">
+      <span class="section-label">Add-Ons</span>
+      <h2 class="section-title">Boost your results further.</h2>
+      <p class="section-sub">Pair any plan with these optional extras for a complete digital marketing stack.</p>
+    </div>
+    <div class="upsell-grid">
+      <div class="upsell-card">
+        <div class="upsell-icon">🌐</div>
+        <div class="upsell-name">Website Package</div>
+        <div class="upsell-price">From $799</div>
+        <div class="upsell-desc">Need a site to publish your content to? We build professional small business websites — design, domain, SSL, and hosting all included.</div>
+        <button class="upsell-btn" onclick="openModal('Website Package Add-On')">Add to My Plan</button>
+      </div>
+      <div class="upsell-card">
+        <div class="upsell-icon">🤖</div>
+        <div class="upsell-name">AI Content Assistant</div>
+        <div class="upsell-price">Included Free</div>
+        <div class="upsell-desc">Every plan includes unlimited access to AI.NAGOH.US — write your own landing pages, emails, and social posts in minutes.</div>
+        <button class="upsell-btn" onclick="openModal()">Claim Access</button>
+      </div>
+      <div class="upsell-card">
+        <div class="upsell-icon">📧</div>
+        <div class="upsell-name">Email Newsletter</div>
+        <div class="upsell-price">+$149/mo</div>
+        <div class="upsell-desc">We repurpose your monthly blog content into a polished email newsletter, sent to your list automatically. Stay top of mind.</div>
+        <button class="upsell-btn" onclick="openModal('Email Newsletter Add-On — $149/mo')">Add to My Plan</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="checkout-wrap" id="contactWrap">
+  <div class="checkout-modal">
+    <button class="checkout-close" onclick="closeModal()">×</button>
+    <div class="checkout-header">
+      <div class="checkout-title">Get Started</div>
+      <div class="checkout-subtitle">Tell us about your business</div>
+    </div>
+    <div class="checkout-body">
+
+      <div id="formFields">
+        <div class="plan-summary" id="planSummary">
+          <div class="summary-line"><span>Selected Plan</span><strong id="summaryPlan">—</strong></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-name">Full Name</label>
+          <input type="text" class="form-input" id="f-name" placeholder="Jane Smith" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-email">Email Address</label>
+          <input type="email" class="form-input" id="f-email" placeholder="jane@yourbusiness.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-biz">Business Name</label>
+          <input type="text" class="form-input" id="f-biz" placeholder="Smith HVAC &amp; Plumbing" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-loc">Business Location (City, State)</label>
+          <input type="text" class="form-input" id="f-loc" placeholder="Warner Robins, GA" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-plan">Plan Interest</label>
+          <select class="form-input" id="f-plan">
+            <option value="">Select a plan...</option>
+            <option value="Starter — $199/mo">Starter — $199/mo</option>
+            <option value="Growth — $349/mo">Growth — $349/mo (Most Popular)</option>
+            <option value="Authority — $599/mo">Authority — $599/mo</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-msg">Tell us about your business</label>
+          <textarea class="form-input" id="f-msg" placeholder="What services do you offer? Who are your customers? Any context helps."></textarea>
+        </div>
+        <button class="checkout-btn" onclick="submitForm()">Send Inquiry →</button>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h3>We got it.</h3>
+        <p>Thanks for reaching out. We'll be in touch within one business day to kick things off.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS TOAST -->
+<div class="success-notification" id="successNotif">
+  ✅ <span>Inquiry sent! We'll be in touch soon.</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="nav-brand" style="color:#fff;">NAGOH<em>.</em>seo</a>
+        <p style="margin-top:1rem; color:rgba(255,255,255,0.7); font-size:0.9rem;">
+          AI-powered SEO content for small businesses that want to grow without the agency overhead.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#plans">Pricing</a></li>
+          <li><a href="#deliverables">Deliverables</a></li>
+          <li><a href="#addons">Add-Ons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://nagoh.us">Nagoh.us</a></li>
+          <li><a href="https://nagoh.us/buymyapp/">Marketplace</a></li>
+          <li><a href="https://ai.nagoh.us">AI Tools</a></li>
+          <li><a href="mailto:hello@nagoh.us">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Nagoh Creative. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function openModal(plan) {
+    document.getElementById('formFields').style.display = 'block';
+    document.getElementById('formSuccess').style.display = 'none';
+    const summary = document.getElementById('planSummary');
+    const select  = document.getElementById('f-plan');
+    if (plan) {
+      document.getElementById('summaryPlan').textContent = plan;
+      summary.classList.add('visible');
+      // Also pre-select in the dropdown if it matches
+      for (let opt of select.options) {
+        if (opt.value === plan) { opt.selected = true; break; }
+      }
+    } else {
+      summary.classList.remove('visible');
+    }
+    document.getElementById('contactWrap').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('contactWrap').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  // Close on backdrop click
+  document.getElementById('contactWrap').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  function submitForm() {
+    const name  = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const biz   = document.getElementById('f-biz').value.trim();
+    const plan  = document.getElementById('f-plan').value;
+
+    if (!name || !email || !biz || !plan) {
+      alert('Please fill in all required fields.'); return;
+    }
+
+    // 🔌 Replace with POST to your Cloudflare Worker / Formspree endpoint
+    console.log('Inquiry:', { name, email, biz, plan });
+
+    document.getElementById('formFields').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+
+    const notif = document.getElementById('successNotif');
+    notif.classList.add('show');
+    setTimeout(() => notif.classList.remove('show'), 5000);
+    setTimeout(closeModal, 3500);
+  }
+</script>
+
+</body>
+</html>
